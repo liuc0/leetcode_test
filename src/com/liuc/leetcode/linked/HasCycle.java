@@ -22,6 +22,19 @@ package com.liuc.leetcode.linked;
  */
 public class HasCycle {
     public boolean hasCycle(ListNode head) {
-        return false;
+        if (head == null || head.next == null) {
+            return false;
+        }
+        // 设置双指针
+        ListNode first = head;
+        ListNode second = head.next;
+        while (first != second) {
+            if (second == null || second.next == null) {
+                return false;
+            }
+            first = first.next;
+            second = second.next.next;
+        }
+        return true;
     }
 }
