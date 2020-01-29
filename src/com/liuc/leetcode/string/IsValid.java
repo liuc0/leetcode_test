@@ -1,9 +1,6 @@
 package com.liuc.leetcode.string;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * leetcode 20
@@ -14,18 +11,16 @@ import java.util.Objects;
  * 注意空字符串可被认为是有效字符串。
  */
 public class IsValid {
-
     private static final Map<Character,Character> map = new HashMap<Character,Character>(){{
         put('{','}'); put('[',']'); put('(',')'); put('?','?');
     }};
-
-
 
     public boolean isValid(String s) {
         // s为空则验证不符合
         if(s.length() > 0 && !map.containsKey(s.charAt(0))){
             return false;
         }
+        Stack<Character> stack1 = new Stack<Character>();
         LinkedList<Character> stack = new LinkedList<Character>() {{ add('?'); }};
         for(Character c : s.toCharArray()){
             if(map.containsKey(c)){
@@ -37,8 +32,7 @@ public class IsValid {
         return stack.size() == 1;
     }
 
-
     public static void main(String[] args) {
-        System.out.println(new IsValid().isValid("({[})]"));
+        System.out.println(new IsValid().isValid("{[]}"));
     }
 }
