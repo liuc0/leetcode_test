@@ -28,9 +28,10 @@ public class LongestValidParentheses {
         }
         return -1;
     }
+
     private boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i <= s.length(); i++) {
             if (s.charAt(i) == '(') {
                 stack.push('(');
             } else if (!stack.empty() && stack.peek() == '(') {
@@ -41,6 +42,7 @@ public class LongestValidParentheses {
         }
         return stack.empty();
     }
+
     // 解法二：通过计数器方式
     public int longestValidParentheses02(String s) {
         int count = 0;
@@ -48,13 +50,13 @@ public class LongestValidParentheses {
         for (int i = 0; i < s.length(); i++) {
             count = 0;
             for (int j = i; j < s.length(); j++) {
-                if (s.charAt(j) == '('){
-                    count ++;
-                }else {
-                    count --;
+                if (s.charAt(j) == '(') {
+                    count++;
+                } else {
+                    count--;
                 }
 
-                if (count < 0){
+                if (count < 0) {
                     break;
                 }
                 if (count == 0) {
@@ -66,23 +68,23 @@ public class LongestValidParentheses {
         }
         return max;
     }
+
     // 解法三：使用栈结构方式
-    public int longestValidParentheses03(String s){
+    public int longestValidParentheses03(String s) {
         int result = 0;
         // 建立一个栈
         Stack<Integer> stack = new Stack<>();
         // 设立一个虚拟头指针
         stack.push(-1);
-        // 从第二个数开始便利
-        for (int i = 1;i<s.length();i++){
-            if (s.charAt(i) == '('){
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
                 stack.push(i);
-            }else {
+            } else {
                 stack.pop();
-                if (stack.empty()){
+                if (stack.empty()) {
                     stack.push(i);
-                }else {
-                    result = Math.max(result,i - stack.peek());
+                } else {
+                    result = Math.max(result, i - stack.peek());
                 }
             }
         }
