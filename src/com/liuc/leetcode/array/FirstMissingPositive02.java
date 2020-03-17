@@ -1,10 +1,6 @@
 package com.liuc.leetcode.array;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
+ * leetcode no.41. 缺失的第一个正数
  * 给定一个未排序的整数数组，找出其中没有出现的最小的正整数。
  * 示例 1:
  * 输入: [1,2,0]
@@ -19,27 +15,7 @@ import java.util.Set;
 
  * 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。
  */
-public class FirstMissingPositive {
-    // 解法一：暴力解法
-    public int firstMissingPositive(int[] nums) {
-        Set<Integer> set = new HashSet();
-        // 排序
-        Arrays.sort(nums);
-        // 去重
-        for (int num : nums) {
-            if (num>0){
-                set.add(num);
-            }
-        }
-        int len = set.size();
-        // [1, -1, 3, 4]
-        for (int i = 1;i<=len;i++){
-            if (!set.contains(i)){
-                return i;
-            }
-        }
-        return len+1;
-    }
+public class FirstMissingPositive02 {
     // 解法二：桶排序
     public int firstMissingPositive(int[] nums) {
         int len = nums.length;
