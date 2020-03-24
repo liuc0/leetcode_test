@@ -14,11 +14,11 @@ public class MergeTwoLists {
         // 创建当前节点合并链表
         ListNode curr = currhead;
         // 迭代链表，判断两值大小
-        while (l1 != null && l2 != null){
-            if (l1.val <= l2.val){
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
                 curr.next = l1;
                 l1 = l1.next;
-            }else {
+            } else {
                 curr.next = l2;
                 l2 = l2.next;
             }
