@@ -23,23 +23,14 @@ package com.liuc.leetcode.recursion;
  */
 public class ClimbStairs02 {
 
-    private static  int result = 0;
     public int climbStairs(int n) {
-        _recursion(0, n);
-        return result;
-    }
-
-    /**
-     * 递归体
-     * @param i 实际台阶
-     * @param n 楼顶台阶
-     * @return
-     */
-    private void _recursion(int i, int n) {
-        if (i == n) result++;
-        if (i>n) return;
-        _recursion(i+1,n);
-        _recursion(i+2,n);
+        int[] result = new int[n + 1];
+        result[0] = 1;
+        result[1] = 1;
+        for(int i = 2; i <= n; i++) {
+            result[i] = result[i - 1] + result[i - 2];
+        }
+        return result[n];
     }
 
     public static void main(String[] args) {
