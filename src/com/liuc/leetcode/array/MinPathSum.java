@@ -15,8 +15,6 @@ package com.liuc.leetcode.array;
  * 解释: 因为路径 1→3→1→1→1 的总和最小。
  */
 public class MinPathSum {
-    private int result = 0;
-
     public int minPathSum(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
