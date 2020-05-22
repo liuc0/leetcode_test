@@ -16,7 +16,7 @@ public class SingleNonDuplicate {
     // 保证 l/h/m 都在偶数位，使得查找区间大小一直都是奇数
     public int singleNonDuplicate(int[] nums) {
         int low = 0,high = nums.length-1;
-        while (low<=high){
+        while (low<high){
             int mid = low + (high-low)/2;
             if(mid % 2 == 1) mid--;
             if (nums[mid+1]<nums[mid]) high = mid;
