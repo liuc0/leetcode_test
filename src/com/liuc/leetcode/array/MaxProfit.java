@@ -15,8 +15,7 @@ package com.liuc.leetcode.array;
  * 输出: 0
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
  */
-public class MaxProfit01 {
-    private int result = -1;
+public class MaxProfit {
     public int maxProfit(int[] prices) {
         int minprice = Integer.MAX_VALUE;
         int maxprofit = 0;
@@ -32,7 +31,7 @@ public class MaxProfit01 {
 
     public static void main(String[] args) {
         int[] nums = {7,1,5,3,6,4};
-        new MaxProfit01().maxProfit(nums);
+        new MaxProfit().maxProfit(nums);
         System.out.println();
     }
 }
